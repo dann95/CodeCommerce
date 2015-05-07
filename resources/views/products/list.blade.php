@@ -17,7 +17,7 @@
                         <td>{{ $produto->name }}</td>
                         <td>{{ $produto->description }}</td>
                         <td>R$ {{ $produto->price }}</td>
-                        <td><a href="#">editar</a>|<a href="#">deletar</a> </td>
+                        <td><a href="{{ route('products.edit' , ['id' => $produto->id]) }}">editar</a> | <a href="{{ route('products.delete' , ['id' => $produto->id]) }}">deletar</a> </td>
                     </tr>
                 @endforeach
             </table>

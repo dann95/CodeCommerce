@@ -33,7 +33,7 @@ class AdminCategoriesController extends Controller
 	 */
 	public function create()
 	{
-		//
+		return "Criando Categoria!";
 	}
 
 	/**
@@ -65,7 +65,7 @@ class AdminCategoriesController extends Controller
 	 */
 	public function edit($id)
 	{
-		//
+		return "Editando $id";
 	}
 
 	/**
@@ -87,7 +87,7 @@ class AdminCategoriesController extends Controller
 	 */
 	public function destroy($id)
 	{
-		//
+		return "Deletando $id";
 	}
 
 }

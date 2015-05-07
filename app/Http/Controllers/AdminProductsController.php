@@ -6,6 +6,7 @@ use CodeCommerce\Http\Controllers\Controller;
 use CodeCommerce\Product;
 use Illuminate\Http\Request;
 
+
 class AdminProductsController extends Controller
 {
     private $productModel;
@@ -32,7 +33,7 @@ class AdminProductsController extends Controller
 	 */
 	public function create()
 	{
-		//
+		return "Criando Produto!";
 	}
 
 	/**
@@ -64,7 +65,7 @@ class AdminProductsController extends Controller
 	 */
 	public function edit($id)
 	{
-		//
+		return "Editando $id";
 	}
 
 	/**
@@ -86,7 +87,7 @@ class AdminProductsController extends Controller
 	 */
 	public function destroy($id)
 	{
-		//
+		return "Deletando $id";
 	}
 
 }
