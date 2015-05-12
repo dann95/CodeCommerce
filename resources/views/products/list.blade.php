@@ -21,6 +21,10 @@
                     </tr>
                 @endforeach
             </table>
+            <hr>
+            <div class="pull-right">
+                <a href="{{ route('products.create') }}" class="btn btn-primary">Create Product</a>
+            </div>
         </div>
     </div>
 @endsection

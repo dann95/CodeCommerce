@@ -33,7 +33,7 @@ class AdminProductsController extends Controller
 	 */
 	public function create()
 	{
-		return "Criando Produto!";
+		return view("products.create");
 	}
 
 	/**
@@ -41,20 +41,10 @@ class AdminProductsController extends Controller
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Requests\ProductRequest $request , Product $model)
 	{
-		//
-	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
+        $model->create($request->all());
+		return redirect()->route('products.list');
 	}
 
 	/**
@@ -63,9 +53,10 @@ class AdminProductsController extends Controller
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($id , Product $model)
 	{
-		return "Editando $id";
+        $product = $model->find($id);
+		return view('products.edit' , compact('product'));
 	}
 
 	/**
@@ -74,9 +65,10 @@ class AdminProductsController extends Controller
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id , Requests\ProductUpdateRequest $request , Product $model)
 	{
-		//
+		$model->find($id)->update($request->all());
+        return redirect()->route('products.list');
 	}
 
 	/**
@@ -85,9 +77,10 @@ class AdminProductsController extends Controller
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($id , Product $model)
 	{
-		return "Deletando $id";
+        $model->find($id)->delete();
+        return redirect()->route('products.list');
 	}
 
 }

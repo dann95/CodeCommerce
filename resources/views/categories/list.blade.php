@@ -19,6 +19,10 @@
                 </tr>
                 @endforeach
             </table>
+            <hr>
+            <div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('categories.create') }}">Create new Category</a>
+            </div>
         </div>
     </div>
 @endsection

@@ -33,7 +33,7 @@ class AdminCategoriesController extends Controller
 	 */
 	public function create()
 	{
-		return "Criando Categoria!";
+		return view('categories.create');
 	}
 
 	/**
@@ -41,9 +41,12 @@ class AdminCategoriesController extends Controller
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Requests\CategoryRequest $request , Category $model)
 	{
-		//
+        $model->fill($request->all());
+        $model->save();
+        return redirect()->route('categories.list');
+
 	}
 
 	/**
@@ -63,9 +66,10 @@ class AdminCategoriesController extends Controller
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($id , Category $model)
 	{
-		return "Editando $id";
+        $category = $model->find($id);
+		return view('categories.edit' , compact('category'));
 	}
 
 	/**
@@ -74,9 +78,10 @@ class AdminCategoriesController extends Controller
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id , Requests\CategoryUpdateRequest $request , Category $model)
 	{
-		//
+		$model->find($id)->update($request->all());
+        return redirect()->route('categories.list');
 	}
 
 	/**
@@ -85,9 +90,10 @@ class AdminCategoriesController extends Controller
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($id , Category $model)
 	{
-		return "Deletando $id";
+        $model->find($id)->delete();
+		return redirect()->route('categories.list');
 	}
 
 }
