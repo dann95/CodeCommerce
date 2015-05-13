@@ -14,7 +14,7 @@ class Products extends Migration {
 	{
 		Schema::table('products', function(Blueprint $table)
 		{
-			$table->integer('category_id')->unsigned();
+			$table->integer('category_id')->unsigned()->default(1);
             $table->boolean('featured');
             $table->boolean('recommend');
 		});
