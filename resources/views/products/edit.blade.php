@@ -37,11 +37,11 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="freatured" class="control-label col-xs-2">Freatured</label>
+                    <label for="freatured" class="control-label col-xs-2">Featured</label>
                     <div class="col-xs-10">
-                        <select name="freatured" class="form-control">
-                            <option value="1"{{ ($product->freatured) ? ' selected' : '' }}>yes</option>
-                            <option value="0"{{ (!$product->freatured) ? ' selected' : '' }}>no</option>
+                        <select name="featured" class="form-control">
+                            <option value="1"{{ ($product->featured) ? ' selected' : '' }}>yes</option>
+                            <option value="0"{{ (!$product->featured) ? ' selected' : '' }}>no</option>
                         </select>
                     </div>
                 </div>

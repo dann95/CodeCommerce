@@ -36,9 +36,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="price" class="control-label col-xs-2">Freatured</label>
+                    <label for="price" class="control-label col-xs-2">Featured</label>
                     <div class="col-xs-10">
-                        <select name="freatured" class="form-control">
+                        <select name="featured" class="form-control">
                             <option value="1">yes</option>
                             <option value="0">no</option>
                         </select>

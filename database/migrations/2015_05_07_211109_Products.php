@@ -12,10 +12,10 @@ class Products extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('Products', function(Blueprint $table)
+		Schema::table('products', function(Blueprint $table)
 		{
 			$table->integer('category_id')->unsigned();
-            $table->boolean('freatured');
+            $table->boolean('featured');
             $table->boolean('recommend');
 		});
 	}
@@ -30,7 +30,7 @@ class Products extends Migration {
 		Schema::table('Products', function(Blueprint $table)
 		{
 			$table->removeColumn('category_id');
-            $table->removeColumn('freatured');
+            $table->removeColumn('featured');
             $table->removeColumn('recommend');
 		});
 	}
