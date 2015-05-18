@@ -19,6 +19,9 @@
                 </tr>
                 @endforeach
             </table>
+            <div class="text-center">
+                {!! $categorias->render() !!}
+            </div>
             <hr>
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{ route('categories.create') }}">Create new Category</a>
