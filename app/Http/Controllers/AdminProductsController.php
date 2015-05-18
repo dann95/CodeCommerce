@@ -22,7 +22,7 @@ class AdminProductsController extends Controller
 	 */
 	public function index()
 	{
-        $produtos = $this->productModel->all();
+        $produtos = $this->productModel->paginate(10);
 		return view('products.list' , compact('produtos'));
 	}
 

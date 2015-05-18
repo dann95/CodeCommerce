@@ -16,7 +16,7 @@ class ProductTableSeeder extends Seeder
         $categoriesId = Category::all()->lists('id');
         $faker = Faker::create('pt_BR');
         DB::table('products')->truncate();
-        for($i = 1; $i <= 23; $i++)
+        for($i = 1; $i <= 40; $i++)
         {
             Product::create([
                 'name' => $faker->word(),

@@ -21,6 +21,9 @@
                     </tr>
                 @endforeach
             </table>
+            <div class="text-center">
+                {!! $produtos->render() !!}
+            </div>
             <hr>
             <div class="pull-right">
                 <a href="{{ route('products.create') }}" class="btn btn-primary">Create Product</a>
