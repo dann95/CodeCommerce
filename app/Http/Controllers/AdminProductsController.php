@@ -82,7 +82,12 @@ class AdminProductsController extends Controller
 	 */
 	public function destroy($id , Product $model)
 	{
-        $model->find($id)->delete();
+        $produto = $model->find($id);
+        foreach($produto->images()->get() as $imgDel)
+        {
+            file_exists(public_path().'/images/products/'.$imgDel->idExtension) && Storage::disk('productImages')->delete($imgDel->idExtension);
+        }
+        $produto->delete();
         return redirect()->route('products.list');
 	}
     public function images($id , Product $product)
