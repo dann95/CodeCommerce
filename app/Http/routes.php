@@ -21,6 +21,7 @@ Route::group(['prefix' => 'admin' , 'where' => ['id' => '[0-9]+']] , function(){
         Route::get('/' , ['uses' => 'AdminProductsController@index' , 'as' => 'products.list']);
         Route::get('delete/{id}' , ['uses' => 'AdminProductsController@destroy' , 'as' => 'products.delete']);
         Route::get('edit/{id}' , ['uses' => 'AdminProductsController@edit' , 'as' => 'products.edit']);
+        Route::get('edit/{id}/images' , ['uses' => 'AdminProductsController@image' , 'as' => 'products.image']);
         Route::get('create' , ['uses' => 'AdminProductsController@create' , 'as' => 'products.create']);
         Route::post('update/{id}' , ['uses' => 'AdminProductsController@update' , 'as' => 'products.update']);
         Route::post('store' , ['uses' => 'AdminProductsController@store' , 'as' => 'products.store']);
