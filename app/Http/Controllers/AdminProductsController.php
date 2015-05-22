@@ -4,7 +4,10 @@ use CodeCommerce\Http\Requests;
 use CodeCommerce\Http\Controllers\Controller;
 
 use CodeCommerce\Product;
+use CodeCommerce\ProductImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 
 class AdminProductsController extends Controller
@@ -87,8 +90,24 @@ class AdminProductsController extends Controller
         $product = $product->find($id);
         return view('products.images' , compact('product'));
     }
-    public function imageStore($id)
+    public function imageStore($id , Request $request , ProductImage $productImage)
     {
-        return redirect()->route('products.image' , ['id' => $id]);
+        $file = $request->file('image');
+        $ext = $file->getClientOriginalExtension();
+        $img = $productImage->create(['product_id' => $id , 'extension' => $ext]);
+        Storage::disk('productImages')->put($img->idExtension , File::get($file));
+        return redirect()->route('products.images' , ['id' => $id]);
+    }
+
+    public function destroyImage($id , ProductImage $productImage)
+    {
+        $img = $productImage->find($id);
+        $productId = $img->product->id;
+        if(file_exists(public_path().'/images/products/'.$img->idExtension))
+        {
+            Storage::disk('productImages')->delete($img->idExtension);
+        }
+        $img->delete();
+        return redirect()->route('products.images' , ['id' => $productId]);
     }
 }

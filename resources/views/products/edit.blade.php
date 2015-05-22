@@ -13,10 +13,16 @@
             @endif
             <div class="row">
                 <div class="col-xs-6 col-md-3">
-                    <a href="#" class="thumbnail">
-                        <img src="{{ url('images/products/not_found.jpg') }}" alt="...">
+                    @if(count($product->images))
+                    <a class="thumbnail">
+                        <img src="{{ url('images/products')."/".$product->cover }}" style="width: 200px; height: 200px" >
                     </a>
-                    <a href="{{ route('products.image', ['id' => $product->id]) }}" class="btn btn-primary">edit image</a>
+                    @else
+                        <a class="thumbnail">
+                            <img src="{{ url('images/products/not_found.jpg') }}" style="width: 200px; height: 200px" >
+                        </a>
+                    @endif
+                    <a href="{{ route('products.images', ['id' => $product->id]) }}" class="btn btn-primary">edit images</a>
                 </div>
             </div>
             <hr>

@@ -10,4 +10,12 @@ class Product extends Model
     {
         return $this->belongsTo('CodeCommerce\Category');
     }
+    public function images()
+    {
+        return $this->hasMany('CodeCommerce\ProductImage');
+    }
+    public function getCoverAttribute()
+    {
+        return $this->images()->first()->idExtension;
+    }
 }
