@@ -82,5 +82,13 @@ class AdminProductsController extends Controller
         $model->find($id)->delete();
         return redirect()->route('products.list');
 	}
-
+    public function images($id , Product $product)
+    {
+        $product = $product->find($id);
+        return view('products.images' , compact('product'));
+    }
+    public function imageStore($id)
+    {
+        return redirect()->route('products.image' , ['id' => $id]);
+    }
 }

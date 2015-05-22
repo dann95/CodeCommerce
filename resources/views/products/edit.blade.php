@@ -11,7 +11,16 @@
                     </div>
                 @endforeach
             @endif
-            <form class="form-horizontal col-lg-5" method="POST" action="{{ route('products.update', ['id' => $product->id]) }}">
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="{{ url('images/products/not_found.jpg') }}" alt="...">
+                    </a>
+                    <a href="{{ route('products.image', ['id' => $product->id]) }}" class="btn btn-primary">edit image</a>
+                </div>
+            </div>
+            <hr>
+                <form class="form-horizontal col-lg-5" method="POST" action="{{ route('products.update', ['id' => $product->id]) }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
                     <label for="name" class="control-label col-xs-2">Name</label>
