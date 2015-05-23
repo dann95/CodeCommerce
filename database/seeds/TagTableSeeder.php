@@ -12,8 +12,12 @@ class TagTableSeeder extends Seeder
     {
 
         $faker = Faker::create('pt_BR');
-        DB::table('tags')->truncate();
-
+        //DB::table('tags')->truncate();
+        $tags = Tag::all();
+        foreach($tags as $tag)
+        {
+            $tag->delete();
+        }
         for($i = 1; $i <= 20; $i++)
         {
             Tag::create([
