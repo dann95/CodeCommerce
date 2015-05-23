@@ -15,7 +15,15 @@ class ProductTableSeeder extends Seeder
 
         $categoriesId = Category::all()->lists('id');
         $faker = Faker::create('pt_BR');
-        DB::table('products')->truncate();
+
+        //DB::table('products')->truncate();
+        // Unable to truncate.
+        $produtos = Product::all();
+        foreach($produtos as $produto)
+        {
+            $produto->delete();
+        }
+
         for($i = 1; $i <= 40; $i++)
         {
             Product::create([
