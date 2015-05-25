@@ -18,4 +18,8 @@ class Product extends Model
     {
         return $this->images()->first()->idExtension;
     }
+    public function tags()
+    {
+        return $this->belongsToMany('CodeCommerce\Tag');
+    }
 }

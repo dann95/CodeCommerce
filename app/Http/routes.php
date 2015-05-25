@@ -28,6 +28,14 @@ Route::group(['prefix' => 'admin' , 'where' => ['id' => '[0-9]+']] , function(){
         Route::post('update/{id}' , ['uses' => 'AdminProductsController@update' , 'as' => 'products.update']);
         Route::post('store' , ['uses' => 'AdminProductsController@store' , 'as' => 'products.store']);
     });
+
+    Route::group(['prefix' => 'tags'] , function(){
+       Route::get('/' , ['uses' => 'AdminTagsController@index' , 'as' => 'tags.list']);
+       Route::get('/create' , ['uses' => 'AdminTagsController@index' , 'as' => 'tags.create']);
+       Route::get('/edit/{id}' , ['uses' => 'AdminTagsController@index' , 'as' => 'tags.edit']);
+        Route::get('/delete/{id}' , ['uses' => 'AdminTagsController@index' , 'as' => 'tags.delete']);
+    });
+
 });
 
 

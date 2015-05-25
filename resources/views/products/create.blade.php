@@ -54,6 +54,19 @@
                     </div>
                 </div>
 
+                <div class="alert-info">
+                    <strong>Available tags:</strong>
+                    {{ implode('  ,  ' , $tags) }}<br>
+                    <strong>you must insert separated by comma.</strong>
+                </div>
+
+                <div class="form-group">
+                    <label for="recommend" class="control-label col-xs-2">Tags</label>
+                    <div class="col-xs-10">
+                        <textarea class="form-control"></textarea>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <div class="col-xs-offset-2 col-xs-10">
                         <button type="submit" class="btn btn-primary">Create Product</button> <a class="btn btn-danger" href="{{ route('products.list') }}">Back to Products list</a>

@@ -5,6 +5,7 @@ use CodeCommerce\Http\Controllers\Controller;
 
 use CodeCommerce\Product;
 use CodeCommerce\ProductImage;
+use CodeCommerce\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -34,9 +35,10 @@ class AdminProductsController extends Controller
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create(Tag $tagModel)
 	{
-		return view("products.create");
+        $tags = $tagModel->all()->lists('name');
+		return view("products.create" , compact('tags'));
 	}
 
 	/**
@@ -56,10 +58,11 @@ class AdminProductsController extends Controller
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id , Product $model)
+	public function edit($id , Product $model , Tag $tagModel)
 	{
         $product = $model->find($id);
-		return view('products.edit' , compact('product'));
+        $tags = $tagModel->all()->lists('name');
+		return view('products.edit' , compact('product' , 'tags'));
 	}
 
 	/**
