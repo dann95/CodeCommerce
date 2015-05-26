@@ -142,10 +142,11 @@ class AdminProductsController extends Controller
         // Loop
         foreach($tags as $tag)
         {
-            $tagDb = $model->where('name' , '=' , $tag)->first();
-
-            // somente inserir a lista de ids se a tag exisitr, senao da erro em ->id
-            $tagDb && $tagsIds[] = $tagDb->id;
+            if(!empty($tag))
+            {
+                $tagDb = $model->firstOrCreate(['name' => $tag]);
+                $tagsIds[] = $tagDb->id;
+            }
         }
         return $tagsIds;
     }
