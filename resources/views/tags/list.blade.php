@@ -13,7 +13,7 @@
                     <tr>
                         <td>{{ $tag->id }}</td>
                         <td>{{ $tag->name }}</td>
-                        <td><a href="{{ route('tags.edit' , ['id' => $tag->id]) }}">editar</a> | <a href="{{ route('tags.delete' , ['id' => $tag->id]) }}">deletar</a> </td>
+                        <td><a href="{{ route('tags.delete' , ['id' => $tag->id]) }}">deletar</a> </td>
                     </tr>
                 @endforeach
             </table>

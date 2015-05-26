@@ -33,9 +33,10 @@ class AdminTagsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Requests\TagRequest $request , Tag $model)
 	{
-		//
+		$model->create($request->all());
+        return redirect()->route('tags.list');
 	}
 
 	/**
@@ -77,9 +78,10 @@ class AdminTagsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($id , Tag $model)
 	{
-		//
+        $model->find($id)->delete();
+        return redirect()->route('tags.list');
 	}
 
 }

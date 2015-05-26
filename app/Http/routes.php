@@ -31,9 +31,9 @@ Route::group(['prefix' => 'admin' , 'where' => ['id' => '[0-9]+']] , function(){
 
     Route::group(['prefix' => 'tags'] , function(){
        Route::get('/' , ['uses' => 'AdminTagsController@index' , 'as' => 'tags.list']);
-       Route::get('/create' , ['uses' => 'AdminTagsController@index' , 'as' => 'tags.create']);
-       Route::get('/edit/{id}' , ['uses' => 'AdminTagsController@index' , 'as' => 'tags.edit']);
-        Route::get('/delete/{id}' , ['uses' => 'AdminTagsController@index' , 'as' => 'tags.delete']);
+       Route::get('/create' , ['uses' => 'AdminTagsController@create' , 'as' => 'tags.create']);
+       Route::get('/delete/{id}' , ['uses' => 'AdminTagsController@destroy' , 'as' => 'tags.delete']);
+       Route::post('store' , ['uses' => 'AdminTagsController@store' , 'as' => 'tags.store']);
     });
 
 });
