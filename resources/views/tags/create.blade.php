@@ -21,7 +21,7 @@
 
                 <div class="form-group">
                     <div class="col-xs-offset-2 col-xs-10">
-                        <button type="submit" class="btn btn-primary">Create Category</button> <a class="btn btn-danger" href="{{ route('tags.list') }}">Back to Tag list</a>
+                        <button type="submit" class="btn btn-primary">Create Tag</button> <a class="btn btn-danger" href="{{ route('tags.list') }}">Back to Tag list</a>
                     </div>
                 </div>
             </form>
