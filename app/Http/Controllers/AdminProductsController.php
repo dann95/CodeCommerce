@@ -46,9 +46,10 @@ class AdminProductsController extends Controller
 	 *
 	 * @return Response
 	 */
-	public function store(Requests\ProductRequest $request , Product $model)
+	public function store(Requests\ProductRequest $request , Product $model , Tag $tagModel)
 	{
-        $model->create($request->all());
+        $product = $model->create($request->all());
+        $product->tags()->sync($this->getTagIdsByList($request->tags , $tagModel));
 		return redirect()->route('products.list');
 	}
 
@@ -71,9 +72,11 @@ class AdminProductsController extends Controller
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id , Requests\ProductUpdateRequest $request , Product $model)
-	{
-		$model->find($id)->update($request->all());
+	public function update($id , Requests\ProductUpdateRequest $request , Product $model , Tag $tagModel)
+    {
+        $product = $model->find($id);
+        $product->update($request->all());
+        $product->tags()->sync($this->getTagIdsByList($request->tags , $tagModel));
         return redirect()->route('products.list');
 	}
 
@@ -117,5 +120,33 @@ class AdminProductsController extends Controller
         }
         $img->delete();
         return redirect()->route('products.images' , ['id' => $productId]);
+    }
+
+    /**
+     * @param string $tagsString
+     * @param Tag $model
+     * @return array
+     */
+    private function getTagIdsByList($tagsString , Tag $model)
+    {
+
+        // Separando por virgula:
+        $tags = explode(',' , $tagsString);
+
+        // É uma lista , ou uma unica entrada? ou uma string vazia?
+        $tags = (count($tags) > 1) ? $tags: [$tagsString];
+
+        // criando um array vazio para o loop
+        $tagsIds = [];
+
+        // Loop
+        foreach($tags as $tag)
+        {
+            $tagDb = $model->where('name' , '=' , $tag)->first();
+
+            // somente inserir a lista de ids se a tag exisitr, senao da erro em ->id
+            $tagDb && $tagsIds[] = $tagDb->id;
+        }
+        return $tagsIds;
     }
 }

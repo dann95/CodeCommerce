@@ -79,7 +79,7 @@
                     <div class="form-group">
                         <label for="recommend" class="control-label col-xs-2">Tags</label>
                         <div class="col-xs-10">
-                            <textarea class="form-control">{{ implode(',' , $product->tags->lists('name')) }}</textarea>
+                            <textarea name="tags" class="form-control">{{ implode(',' , $product->tags->lists('name')) }}</textarea>
                         </div>
                     </div>
 
