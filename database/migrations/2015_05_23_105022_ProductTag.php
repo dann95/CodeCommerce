@@ -18,7 +18,6 @@ class ProductTag extends Migration {
             $table->foreign('product_id')->references('id')->on('products');
             $table->integer('tag_id')->unsigned();
             $table->foreign('tag_id')->references('id')->on('tags');
-			$table->timestamps();
 		});
 	}
 
