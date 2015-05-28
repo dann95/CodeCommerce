@@ -22,4 +22,12 @@ class Product extends Model
     {
         return $this->belongsToMany('CodeCommerce\Tag');
     }
+    public function scopeFeatured($query)
+    {
+        return $query->whereFeatured(true)->get();
+    }
+    public function scopeRecommend($query)
+    {
+        return $query->whereRecommend(true)->get();
+    }
 }
