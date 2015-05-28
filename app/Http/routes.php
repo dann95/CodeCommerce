@@ -49,8 +49,8 @@ Route::group(['where' => ['id' => '[0-9]+']] , function(){
      * Rotas da loja :
      */
     Route::get('/', ['uses' => 'StoreController@index' , 'as' => 'store.index']);
-    Route::get('/category/{id}-{name}', ['uses' => 'StoreController@category' , 'as' => 'store.category']);
-
+    Route::get('/category/{id}-{name?}', ['uses' => 'StoreController@category' , 'as' => 'store.category']);
+    Route::get('/product/{id}-{name?}', ['uses' => 'StoreController@product' , 'as' => 'store.product']);
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
