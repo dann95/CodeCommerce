@@ -51,6 +51,7 @@ Route::group(['where' => ['id' => '[0-9]+']] , function(){
     Route::get('/', ['uses' => 'StoreController@index' , 'as' => 'store.index']);
     Route::get('/category/{id}-{name?}', ['uses' => 'StoreController@category' , 'as' => 'store.category']);
     Route::get('/product/{id}-{name?}', ['uses' => 'StoreController@product' , 'as' => 'store.product']);
+    Route::get('/tag/{id}-{name?}', ['uses' => 'StoreController@tag' , 'as' => 'store.tag.show']);
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
