@@ -49,7 +49,7 @@
                         <ul class="nav navbar-nav">
                             <li><a href="#"><i class="fa fa-user"></i> Minha conta</a></li>
                             <li><a href="http://commerce.dev:10088/checkout"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li><a href="http://commerce.dev:10088/cart"><i class="fa fa-shopping-cart"></i> Carrinho</a></li>
+                            <li><a href="{{ route('cart.list') }}"><i class="fa fa-shopping-cart"></i> Carrinho R$ {{ Session::get('cart')->total() }}</a></li>
                             <li><a href="http://commerce.dev:10088/auth/login"><i class="fa fa-lock"></i> Login</a></li>
                         </ul>
                     </div>

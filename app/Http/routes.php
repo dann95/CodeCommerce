@@ -48,10 +48,19 @@ Route::group(['where' => ['id' => '[0-9]+']] , function(){
     /**
      * Rotas da loja :
      */
-    Route::get('/', ['uses' => 'StoreController@index' , 'as' => 'store.index']);
-    Route::get('/category/{id}-{name?}', ['uses' => 'StoreController@category' , 'as' => 'store.category']);
-    Route::get('/product/{id}-{name?}', ['uses' => 'StoreController@product' , 'as' => 'store.product']);
-    Route::get('/tag/{id}-{name?}', ['uses' => 'StoreController@tag' , 'as' => 'store.tag.show']);
+     Route::group(['middleware' => 'Cart'] , function() {
+
+         Route::get('/', ['uses' => 'StoreController@index', 'as' => 'store.index']);
+         Route::get('/category/{id}-{name?}', ['uses' => 'StoreController@category', 'as' => 'store.category']);
+         Route::get('/product/{id}-{name?}', ['uses' => 'StoreController@product', 'as' => 'store.product']);
+         Route::get('/tag/{id}-{name?}', ['uses' => 'StoreController@tag', 'as' => 'store.tag.show']);
+
+
+         Route::get('/cart' , ['uses' => 'CartController@index' , 'as' => 'cart.list']);
+         Route::get('/cart/add/{id}' , ['uses' => 'CartController@add' , 'as' => 'cart.add']);
+         Route::get('/cart/del/{id}' , ['uses' => 'CartController@del' , 'as' => 'cart.del']);
+
+     });
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

@@ -27,6 +27,7 @@ class Kernel extends HttpKernel {
 		'auth' => 'CodeCommerce\Http\Middleware\Authenticate',
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
 		'guest' => 'CodeCommerce\Http\Middleware\RedirectIfAuthenticated',
+        'Cart' => 'CodeCommerce\Http\Middleware\Cart'
 	];
 
 }
