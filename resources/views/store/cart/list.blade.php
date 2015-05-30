@@ -1,5 +1,5 @@
 @extends('store.layouts.default')
-@section('title' , 'Home')
+@section('title' , 'Carrinho')
 @section('content')
     <section id="cart_items">
     <div class="container">
