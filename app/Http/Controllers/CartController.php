@@ -17,7 +17,6 @@ class CartController extends Controller
         {
         $cart = Session::get('cart');
         $cart->add($product);
-        Session::put('cart' , $cart);
         }
         return redirect()->route('cart.list');
     }
@@ -26,7 +25,6 @@ class CartController extends Controller
     {
         $cart = $this->getCart()
             ->del($id);
-        Session::put('cart' , $cart);
         return redirect()->route('cart.list');
     }
 
