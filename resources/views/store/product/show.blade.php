@@ -47,18 +47,21 @@
                     <p>{{ $product->description }}</p>
                                 <span>
                                     <span>R$ {{ $product->price }}</span>
-                                        <a href="http://commerce.dev:10088/cart/2/add" class="btn btn-fefault cart">
+                                        <a href="{{ route('cart.add' , ['id' => $product->id]) }}" class="btn btn-fefault cart">
                                             <i class="fa fa-shopping-cart"></i>
                                             Adicionar no Carrinho
                                         </a>
                                 </span>
                 </div>
                 <!--/product-information-->
+                <h3>Tags:</h3>
                 <p>
                     <strong>
-                    @foreach($product->tags as $tag)
+                    @forelse($product->tags as $tag)
                     <a href="{{ route('store.tag.show' , ['id' => $tag->id , 'name' => $tag->name]) }}"> #{{ $tag->name }} </a>
-                    @endforeach
+                    @empty
+                    Nenhuma tag associada a esse produto!
+                    @endforelse
                     </strong>
                 </p>
             </div>
