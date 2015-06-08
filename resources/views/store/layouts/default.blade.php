@@ -48,9 +48,12 @@
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
                             <li><a href="#"><i class="fa fa-user"></i> Minha conta</a></li>
-                            <li><a href="http://commerce.dev:10088/checkout"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                             <li><a href="{{ route('cart.list') }}"><i class="fa fa-shopping-cart"></i> Carrinho R$ {{ Session::get('cart')->total() }}</a></li>
-                            <li><a href="http://commerce.dev:10088/auth/login"><i class="fa fa-lock"></i> Login</a></li>
+                            @if( ! Auth::check())
+                            <li><a href="{{ url('auth/login') }}"><i class="fa fa-lock"></i> Login</a></li>
+                            @else
+                            <li><a href="{{ url('auth/logout') }}"><i class="fa fa-sign-out"></i> Sair</a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>
