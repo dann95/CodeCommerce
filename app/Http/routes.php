@@ -10,7 +10,7 @@ Route::group(['where' => ['id' => '[0-9]+']] , function(){
     /**
      * Rotas para Admin :
      */
-    Route::group(['prefix' => 'admin' , 'where' => ['id' => '[0-9]+']] , function(){
+    Route::group(['prefix' => 'admin' , 'middleware' => 'admin' , 'where' => ['id' => '[0-9]+']] , function(){
 
         # Categories :
         Route::group(['prefix' => 'categories'] , function(){
