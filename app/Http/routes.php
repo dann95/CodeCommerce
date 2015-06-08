@@ -60,7 +60,16 @@ Route::group(['where' => ['id' => '[0-9]+']] , function(){
          Route::get('/cart/add/{id}' , ['uses' => 'CartController@add' , 'as' => 'cart.add']);
          Route::get('/cart/del/{id}' , ['uses' => 'CartController@del' , 'as' => 'cart.del']);
 
+         /**
+          * Rotas em que é necessario estar logado:
+          */
+         Route::group(['middleware' => 'auth'] , function(){
+            Route::get('/order' , ['uses' => 'OrderController@finish' , 'as' => 'order.finish']);
+         });
+
      });
+
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
