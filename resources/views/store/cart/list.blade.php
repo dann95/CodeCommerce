@@ -27,7 +27,7 @@
             </tbody>
         </table>
             <div class="pull-right">
-                <button class="btn btn-success">Finalizar Compra <i class="fa fa-check"></i></button>
+                <a href="{{ route('order.finish') }}"> <button class="btn btn-success">Finalizar Compra <i class="fa fa-check"></i></button></a>
             </div>
         </div>
 
