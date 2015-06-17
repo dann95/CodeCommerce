@@ -29,7 +29,7 @@ class ProductTableSeeder extends Seeder
             Product::create([
                 'name' => $faker->word(),
                 'description' => $faker->sentence(mt_rand(1,4)),
-                'price' =>  $faker->randomNumber(mt_rand(1,5)),
+                'price' =>  $faker->randomNumber(mt_rand(1,3)),
                 'category_id' => $faker->randomElement($categoriesId),
                 'featured' => mt_rand(0,1),
                 'recommend' => mt_rand(0,1)

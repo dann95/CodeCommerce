@@ -65,6 +65,8 @@ Route::group(['where' => ['id' => '[0-9]+']] , function(){
           */
          Route::group(['middleware' => 'auth'] , function(){
             Route::get('/order' , ['uses' => 'OrderController@finish' , 'as' => 'order.finish']);
+            Route::get('/order/view/{id}' , ['uses' => 'AccountController@order' , 'as' => 'order.view']);
+            Route::get('/account' , ['uses' => 'AccountController@index' , 'as' => 'account.index']);
          });
 
      });

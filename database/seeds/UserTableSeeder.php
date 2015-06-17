@@ -12,7 +12,13 @@ class UserTableSeeder extends Seeder
     {
 
         $faker = Faker::create('pt_BR');
-        DB::table('users')->truncate();
+        //DB::table('users')->truncate();
+        $users = User::all();
+
+        foreach($users as $user)
+        {
+            $user->delete();
+        }
 
         for($i = 1; $i <= 7; $i++)
         {

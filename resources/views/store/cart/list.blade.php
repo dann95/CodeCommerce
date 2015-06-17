@@ -6,7 +6,7 @@
         <div class="table-responsive cart_info">
         <table class="table table-condensed">
             <thead>
-                <tr class="cart_menu    ">
+                <tr class="cart_menu">
                     <th>item</th>
                     <th></th>
                     <th>quantidade</th>
