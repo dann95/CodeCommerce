@@ -1,4 +1,4 @@
-@extends('app')
+@extends('store.layouts.default')
 
 @section('content')
 <div class="container-fluid">
