@@ -10,5 +10,9 @@ class Order extends Model {
     {
         return $this->hasMany('CodeCommerce\OrderItem');
     }
+    public function client()
+    {
+        return $this->belongsTo('CodeCommerce\User' , 'user_id');
+    }
 
 }

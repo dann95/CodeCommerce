@@ -35,6 +35,41 @@
 							</div>
 						</div>
 
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Cep</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="cep" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Rua</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="rua" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Complemento</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="complemento" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Bairro</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="bairro" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Cidade</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="cidade" value="">
+                            </div>
+                        </div>
+
 						<div class="form-group">
 							<label class="col-md-4 control-label">Password</label>
 							<div class="col-md-6">
@@ -56,6 +91,7 @@
 								</button>
 							</div>
 						</div>
+
 					</form>
 				</div>
 			</div>

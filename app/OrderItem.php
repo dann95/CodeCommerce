@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class OrderItem extends Model {
+class OrderItem extends Model
+{
 
     protected $fillable = ['order_id' , 'product_id'];
 
@@ -15,5 +16,4 @@ class OrderItem extends Model {
     {
         return $this->belongsTo('CodeCommerce\Product' , 'product_id');
     }
-
 }

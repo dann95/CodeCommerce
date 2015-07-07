@@ -138,6 +138,6 @@
 
 
 <script src="{{ elixir('js/CodeCommerce.js') }}"></script>
-
+@yield('javascripts')
 </body>
 </html>

@@ -19,6 +19,11 @@ class CreateUsersTable extends Migration {
 			$table->string('email')->unique();
 			$table->string('password', 60);
             $table->boolean('is_admin')->default(0);
+            $table->string('cep');
+            $table->string('rua');
+            $table->string('bairro');
+            $table->string('complemento');
+            $table->string('cidade');
 			$table->rememberToken();
 			$table->timestamps();
 		});

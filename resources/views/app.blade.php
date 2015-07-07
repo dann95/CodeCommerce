@@ -37,6 +37,7 @@
                     <li><a href="{{ route('categories.list') }}">Categories</a></li>
                     <li><a href="{{ route('products.list') }}">Products</a></li>
                     <li><a href="{{ route('tags.list') }}">Tags</a></li>
+                    <li><a href="{{ route('orders.list') }}">Orders</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">

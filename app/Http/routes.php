@@ -35,11 +35,19 @@ Route::group(['where' => ['id' => '[0-9]+']] , function(){
             Route::post('store' , ['uses' => 'AdminProductsController@store' , 'as' => 'products.store']);
         });
 
+        # Tags
         Route::group(['prefix' => 'tags'] , function(){
             Route::get('/' , ['uses' => 'AdminTagsController@index' , 'as' => 'tags.list']);
             Route::get('/create' , ['uses' => 'AdminTagsController@create' , 'as' => 'tags.create']);
             Route::get('/delete/{id}' , ['uses' => 'AdminTagsController@destroy' , 'as' => 'tags.delete']);
             Route::post('store' , ['uses' => 'AdminTagsController@store' , 'as' => 'tags.store']);
+        });
+
+        # Orders
+        Route::group(['prefix' => 'orders'] , function(){
+            Route::get('/' , ['uses' => 'OrdersController@index' , 'as' => 'orders.list']);
+            Route::get('/edit/{id}' , ['uses' => 'OrdersController@edit' , 'as' => 'orders.edit']);
+            Route::post('/update/{id}',['uses' => 'OrdersController@update' , 'as' => 'orders.update']);
         });
 
     });
@@ -69,12 +77,13 @@ Route::group(['where' => ['id' => '[0-9]+']] , function(){
             Route::get('/account' , ['uses' => 'AccountController@index' , 'as' => 'account.index']);
          });
 
+
+         Route::controllers([
+             'auth' => 'Auth\AuthController',
+             'password' => 'Auth\PasswordController',
+         ]);
+
+
      });
 
-
-
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
 });
